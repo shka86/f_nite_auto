@@ -32,6 +32,7 @@ def picture_search_click(filename):
     while True:
         try:
             button_position = get_locate_from_filename(filename)
+            pg.moveTo(button_position[0], button_position[1], duration=1)
             time.sleep(3)
             pg.click(button_position)
             break
@@ -49,7 +50,8 @@ def picture_search_wait(filename):
     timeout = 5
     while True:
         try:
-            time.sleep(80 * 60) # 1h15min
+            # time.sleep(80 * 60) # 1h15min
+            time.sleep(5) # 1h15min
             button_position = get_locate_from_filename(filename)
             time.sleep(3)
             pg.click(button_position)
@@ -71,7 +73,7 @@ def wait_to_get_xp():
 def leave_creative():
     pg.press('esc')
     time.sleep(3)
-    picture_search_click('leave_from_creative.png')
+    picture_search_click('leave_from_creative_red.png')
     time.sleep(3)
     picture_search_click('leave.png')
 
