@@ -5,7 +5,6 @@ import pyautogui as pg
 pg.PAUSE = 1
 
 # pyscreeze の設定(画像が見当たらない場合に"ImageNotFoundException"を受け取る)
-# import pyscreeze
 from pyscreeze import ImageNotFoundException
 # pyscreeze.USE_IMAGE_NOT_FOUND_EXCEPTION = True
 
