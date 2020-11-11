@@ -62,8 +62,8 @@ def creative_wait(filename):
     timeout = 5
     while True:
         try:
-            # time.sleep(random.uniform(61, 69) * 60) # 1h15min
-            time.sleep(5) # 1h15min
+            time.sleep(random.uniform(61, 69) * 60) # 1h15min
+            # time.sleep(5) # 1h15min
             button_position = get_locate_from_filename(filename)
             time.sleep(3)
             pg.click(button_position)
