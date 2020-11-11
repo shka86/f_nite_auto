@@ -60,23 +60,29 @@ def creative_wait(filename):
     pg.moveTo(1, 1, duration=random.random()+0.1)
     nsec = 0
     timeout = 5
-    while True:
-        try:
-            time.sleep(random.uniform(61, 69) * 60) # 1h15min
-            # time.sleep(5) # 1h15min
-            button_position = get_locate_from_filename(filename)
-            time.sleep(3)
-            pg.click(button_position)
-            break
-        except ImageNotFoundException:
-            time.sleep(1)
-            nsec += 1
-            if nsec > timeout:
-                pg.alert(text='タイムアウト', button='OK')
+
+    button_position = get_locate_from_filename(filename)
+    if button_position == None:
+        print(f"not found {filename}")
+    else:
+        while True:
+            try:
+                time.sleep(random.uniform(61, 69) * 60) # 1h15min
+                # time.sleep(5) # 1h15min
+                button_position = get_locate_from_filename(filename)
+                time.sleep(3)
+                pg.click(button_position)
                 break
+            except ImageNotFoundException:
+                time.sleep(1)
+                nsec += 1
+                if nsec > timeout:
+                    pg.alert(text='タイムアウト', button='OK')
+                    break
 
 def start_up():
     picture_search_and_click('sttup.png')
+    time.sleep(60)
     picture_search_and_click('creative_button.png')
 
 def tojiru():
